@@ -1,2 +1,2 @@
 # kuka_ros
-docker containrisation of kuka_experimenal repository
+docker containerisation of kuka_experimenal repository
