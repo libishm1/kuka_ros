@@ -1,0 +1,71 @@
+# Use Ubuntu 20.04 as the base image
+FROM ubuntu:20.04
+
+# Update the package list
+RUN apt-get update && \
+
+# Install essential packages
+apt-get install -y \
+    git \
+    cmake \
+    build-essential \
+    python3 \
+    python3-pip \
+    python3-setuptools \
+    python3-empy \
+    python3-nose \
+    python3-pycryptodome \
+    python3-defusedxml \
+    python3-mock \
+    python3-netifaces \
+    python3-gnupg \
+    python3-numpy \
+    python3-psutil \
+    libboost-thread-dev \
+    libboost-system-dev \
+    libboost-filesystem-dev \
+    libboost-regex-dev \
+    libboost-program-options-dev \
+    libconsole-bridge-dev \
+    libpoco-dev \
+    libtinyxml2-dev \
+    liblz4-dev \
+    libbz2-dev \
+    uuid-dev \
+    liblog4cxx-dev \
+    libgpgme-dev \
+    libgtest-dev
+
+RUN apt-get update && apt-get install -y --no-install-recommends\
+    pkg-config \
+    python3-catkin-tools \
+    python3-rosdep \
+    python3-rosinstall-generator \
+    python3-vcstool \
+    python3-pykdl \
+
+# Create a workspace
+WORKDIR /root/catkin_ws
+
+# Clone Kuka Experimental repository
+RUN git clone https://github.com/ros-industrial/kuka_experimental.git src/kuka_experimental
+
+# Resolve dependencies
+RUN rosdep install --from-paths src --ignore-src --rosdistro kinetic -y
+
+# Build the packages
+RUN cd ~/catkin_ws && catkin_make
+
+# Source the setup script for the workspace
+ENV ROS_PACKAGE_PATH=/root/catkin_ws/devel/share:/opt/ros/$ROS_DISTRO/share
+ENV LD_LIBRARY_PATH=/root/catkin_ws/devel/lib:/opt/ros/$ROS_DISTRO/lib
+ENV PATH=/root/catkin_ws/devel/bin:/opt/ros/$ROS_DISTRO/bin:$PATH
+
+# Copy your application files into the Docker image
+COPY . /app
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Specify the command to run your application
+CMD ["roslaunch", "your_package", "your_launch_file.launch"]
