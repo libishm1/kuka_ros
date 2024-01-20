@@ -10,3 +10,5 @@ references - https://medium.com/@sepideh.92sh/how-docker-revolutionizes-applicat
 https://medium.com/@gauravkamble9112/installing-python-libraries-inside-docker-with-pip3-d5348afb7a80
 
 https://www.phind.com/search?cache=z2ve73rqlz9yqfai422kbgfq
+
+https://docs.docker.com/get-started/02_our_app/
