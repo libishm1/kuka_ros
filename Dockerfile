@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y --allow-unauthenticated ros-kinetic-joi
 RUN apt-get update && apt-get install -y --allow-unauthenticated ros-kinetic-realtime-tools
 
 # Install terminator, python3-pip, and the listed ROS packages
-RUN apt-get update && apt-get install -y --allow-unauthenticated terminator python3-pip \
+RUN apt-get update && apt-get install -y --allow-unauthenticated terminator python3-pip rqt \
     ros-kinetic-catkin \
     ros-kinetic-industrial-robot-client \
     ros-kinetic-joint-state-publisher \
