@@ -5,6 +5,8 @@ docker build -t my_moveit_image .
 
 sudo docker run -it --name my_moveit_image my_moveit_image
 
+sudo docker run -it --name my_moveit_container -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix my_moveit_image
+
 
 references - 
 
