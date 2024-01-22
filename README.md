@@ -1,13 +1,20 @@
 # kuka_ros
 docker containerisation of kuka_experimenal repository
 
-docker build -t my_moveit_image .
+cd to docker file location 
+Build the docker image  
+  docker build -t my_moveit_image .
+disable display restrictions 
+  xhost +
+run the docker image 
+  sudo docker run -it --name my_moveit_container -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix my_moveit_image
 
-sudo docker run -it --name my_moveit_container my_moveit_image
-
-xhost +
-
-sudo docker run -it --name my_moveit_container -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix my_moveit_image
+inside docker container,
+source the workspace
+ . ~/catkin_ws/devel/setup.bash
+ 
+launch the test files
+ roslaunch kuka_kr10_support test_kr10r900_2.launch 
 
 
 references - 
