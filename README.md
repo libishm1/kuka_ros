@@ -29,3 +29,10 @@ https://www.phind.com/search?cache=z2ve73rqlz9yqfai422kbgfq
 
 kinetic tutorials
 http://docs.ros.org/en/kinetic/api/moveit_tutorials/html/index.html
+
+openshowvar communication client
+https://github.com/AytacKahveci/KukaRosOpenCommunication/tree/master
+
+kukavarproxy server
+https://github.com/ImtsSrl/KUKAVARPROXY
+
