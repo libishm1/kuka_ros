@@ -30,6 +30,11 @@ https://www.phind.com/search?cache=z2ve73rqlz9yqfai422kbgfq
 kinetic tutorials
 http://docs.ros.org/en/kinetic/api/moveit_tutorials/html/index.html
 
+install from source - 
+http://wiki.ros.org/kinetic/Installation/Source
+https://moveit.ros.org/install/source/
+
+
 openshowvar communication client
 https://github.com/AytacKahveci/KukaRosOpenCommunication/tree/master
 
